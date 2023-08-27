@@ -2,20 +2,18 @@ import React from "react";
 
 import "../styles/PhotoListItem.scss";
 
-
-const sampleDataForPhotoListItem = {
-  id: "1",
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  username: "Joe Example",
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-};
-
-const PhotoListItem = () => {
+const PhotoListItem = (props) => {
   /* Insert React */
+  const { photoListItem } = props;
+  console.log(photoListItem)
+  return (
+    <div>
+      <img src={photoListItem.imageSource} alt="Image Source" />
+      <img src={photoListItem.profile} alt="Profile Pic" />
+      <div>{photoListItem.username}</div>
+      <div>{photoListItem.location.city}, {photoListItem.location.country}</div>
+    </div>
+  )
 };
 
 export default PhotoListItem;
