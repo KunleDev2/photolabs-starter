@@ -4,12 +4,14 @@ import '../styles/HomeRoute.scss';
 import PhotoList from '../components/PhotoList';
 import TopNavigationBar from '../components/TopNavigationBar';
 
-const HomeRoute = () => {
+const HomeRoute = (props) => {
+  const {photos, topics} = props;
+
   return (
     <div className="home-route">
       {/* Insert React */}
-      <TopNavigationBar />
-      <PhotoList />
+      <TopNavigationBar topics={topics}/>
+      <PhotoList photos={photos}/>
     </div>
   );
 };

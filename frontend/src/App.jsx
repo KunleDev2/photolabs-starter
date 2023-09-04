@@ -2,9 +2,9 @@ import React from 'react';
 
 import './App.scss';
 import './styles/PhotoList.scss';
-import PhotoList from './components/PhotoList';
-import TopNavigationBar from './components/TopNavigationBar';
 import HomeRoute from 'routes/HomeRoute';
+import photos from 'mocks/photos';
+import topics from 'mocks/topics';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
       ))} */}
       {/* <TopNavigationBar /> */}
       {/* <PhotoList /> */}
-      <HomeRoute />
+      <HomeRoute photos={photos} topics={topics}/>
     </div>
   );
 };

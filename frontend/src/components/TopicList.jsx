@@ -21,12 +21,14 @@ const sampleDataForTopicList = [
   },
 ];
 
-const TopicList = () => {
+const TopicList = (props) => {
+  const topics = props.topics;
+  console.log(topics);
   return (
     <div className="top-nav-bar__topic-list">
       {/* Insert React */}
       {/* <TopicListItem sampleDate={sampleDataForTopicList}/> */}
-      { Array.from(Array(sampleDataForTopicList.length)).map((_, index) => <TopicListItem key={index} sampleData={sampleDataForTopicList[index]}/>) }
+      { Array.from(Array(topics.length)).map((_, index) => <TopicListItem key={index} sampleData={topics[index]}/>) }
     </div>
   );
 };
