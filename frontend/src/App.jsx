@@ -1,24 +1,23 @@
 import React from 'react';
 
-import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
-
-const sampleDataForPhotoListItem = {
-  id: "1",
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  username: "Joe Example",
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-};
+import './styles/PhotoList.scss';
+import PhotoList from './components/PhotoList';
+import TopicList from './components/TopicList';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+//   const photos = new Array(3).fill(sampleDataForPhotoListItem);
+// console.log(photos);
   return (
-    <div className="App">
-      <PhotoListItem photoListItem={sampleDataForPhotoListItem}/>
+    <div className="App photo-list">
+      {/* {photos.map((hello, index) => (
+      <div key={index}>
+        <PhotoListItem photoListItem={hello}/>
+      </div>
+      ))} */}
+      <TopicList />
+      <PhotoList />
     </div>
   );
 };
