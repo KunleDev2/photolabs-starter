@@ -12,14 +12,13 @@ const PhotoListItem = (props) => {
   }
 
   const handleClick = () => {
-    console.log("I was clicked");
   }
 
   const openModalClick = () => {
-    console.log("I was clicked open modal");
     props.openModal(true, photoListItem);
   }
 
+  console.log(photoListItem);
   return (
     <div className="photo-list__item">
         <PhotoFavButton onClick={handleClick} />

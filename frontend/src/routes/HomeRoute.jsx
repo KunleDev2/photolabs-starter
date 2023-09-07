@@ -10,8 +10,6 @@ const HomeRoute = (props) => {
 
   const [favs, setFavs] = useState(true);
 
-  console.log(favs);
-
   return (
     <div className="home-route">
       {/* Insert React */}

@@ -10,12 +10,11 @@ import { useState } from "react";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [isPictureModalOpen, setIsPictureModalOpen] = useState(true);
+  const [isPictureModalOpen, setIsPictureModalOpen] = useState(false);
   const [photoDetailsData, setphotoDetailsData] = useState(null);
 
   const openPictureModal = (bool, photoData) => {
-    console.log(photoData);
-    setIsPictureModalOpen(true);
+    setIsPictureModalOpen(bool);
     setphotoDetailsData(photoData);
   };
 
