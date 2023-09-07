@@ -23,7 +23,6 @@ const sampleDataForTopicList = [
 
 const TopicList = (props) => {
   const topics = props.topics;
-  console.log(topics);
   return (
     <div className="top-nav-bar__topic-list">
       {/* Insert React */}

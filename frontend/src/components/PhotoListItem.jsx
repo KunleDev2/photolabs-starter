@@ -12,15 +12,18 @@ const PhotoListItem = (props) => {
   }
 
   const handleClick = () => {
+    console.log("I was clicked");
+  }
 
+  const openModalClick = () => {
+    console.log("I was clicked open modal");
+    props.openModal(true, "Hello Clicked");
   }
 
   return (
     <div className="photo-list__item">
-      <div onClick={handleClick}>
-        <PhotoFavButton onClick={true} />
-      </div>
-      <img src={photoListItem.urls.full} className="photo-list__image" alt="Image Source" /><br></br>
+        <PhotoFavButton onClick={handleClick} />
+      <img src={photoListItem.urls.full} className="photo-list__image" alt="Image Source" onClick={openModalClick}/><br></br>
       <div style={ photoStyle }>
         <img src={photoListItem.user.profile} className="photo-list__user-profile" alt="Profile Pic" />
         <div>
