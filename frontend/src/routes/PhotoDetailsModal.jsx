@@ -6,12 +6,18 @@ import PhotoList from '../components/PhotoList';
 import PhotoFavButton from "../components/PhotoFavButton"
 
 const PhotoDetailsModal = (props) => {
+
   const handleClick = () => {
     props.closeModal(true);
   }
 
   const photoStyle = {
     display: "flex"
+  }
+
+  const imageStyle = {
+    height: "100%",
+    width: "100%"
   }
 
   if (!props.isOpen) return null;
@@ -23,17 +29,18 @@ const PhotoDetailsModal = (props) => {
       </button>
       <div>
         <PhotoFavButton />
-        <img src={props.photoDetails.urls.full} className="photo-details-modal__image" alt="Image Source" />
-        <div style={photoStyle}>
+        <img  style={imageStyle} src={props.photoDetails.urls.full} alt="Image Source" />
+        <div style={photoStyle} className='photo-details-modal__image'>
           <img src={props.photoDetails.user.profile} className="photo-list__user-profile" alt="Profile Pic" />
           <div>
             <div className="photo-list__user-info">{props.photoDetails.user.username}</div>
             <div className="photo-list__user-location">{props.photoDetails.location.city}, {props.photoDetails.location.country}</div>
           </div>
         </div>
-        {/* <PhotoList photos={props.photoDetails} /> */}
+        </div>
+        <div className=".photo-details-modal__header">Similar Photos</div>
+        <PhotoList photos={props.photoDetails.similar_photos} />
       </div>
-    </div>
   )
 };
 

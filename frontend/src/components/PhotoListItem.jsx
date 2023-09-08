@@ -7,6 +7,9 @@ const PhotoListItem = (props) => {
   /* Insert React */
   const { photoListItem } = props;
 
+  if (photoListItem == null) {
+  };
+
   const photoStyle = {
     display: "flex"
   }
@@ -18,10 +21,9 @@ const PhotoListItem = (props) => {
     props.openModal(true, photoListItem);
   }
 
-  console.log(photoListItem);
   return (
     <div className="photo-list__item">
-        <PhotoFavButton onClick={handleClick} />
+        <PhotoFavButton />
       <img src={photoListItem.urls.full} key={photoListItem.id} className="photo-list__image" alt="Image Source" onClick={openModalClick}/><br></br>
       <div style={ photoStyle }>
         <img src={photoListItem.user.profile} className="photo-list__user-profile" alt="Profile Pic" />
