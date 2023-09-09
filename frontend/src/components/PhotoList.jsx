@@ -13,12 +13,14 @@ const PhotoList = (props) => {
       key={index} 
       photoListItem={props.photos[index]} 
       openModal={props.openModal}
+      favs={props.favs}
       />
       ) : (
         <PhotoListItem 
       key={1} 
       photoListItem={props.photos[1]} 
       openModal={props.openModal}
+      favs={props.favs}
       />
       )) }
     </ul>

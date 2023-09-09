@@ -23,7 +23,7 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item">
-        <PhotoFavButton />
+        <PhotoFavButton favs={props.favs}/>
       <img src={photoListItem.urls.full} key={photoListItem.id} className="photo-list__image" alt="Image Source" onClick={openModalClick}/><br></br>
       <div style={ photoStyle }>
         <img src={photoListItem.user.profile} className="photo-list__user-profile" alt="Profile Pic" />

@@ -47,12 +47,26 @@ const App = () => {
     getDataPhotos();
     getDataTopics();
   }, []);
-  
+
+  const getDataPhotosById = (titleId) => {
+    const getDataById = async (titleId) => {
+      try {
+        const resp = await fetch('http://localhost:8001/api/topics/photos/' + titleId);
+        const res = await resp.json();
+        setPhotoData(res);
+      } catch (error) {
+        console.error('Error fetching data');
+      }
+    };
+
+    getDataById(titleId);
+  }
+
   return (
     <div className="App">
-      {photoData && (<HomeRoute photos={photoData} topics={topicData} openModal={openPictureModal}/>)}
+      {photoData && (<HomeRoute photos={photoData} topics={topicData} openModal={openPictureModal} photoById={getDataPhotosById} />)}
       {/* <HomeRoute photos={photos} topics={topics} openModal={openPictureModal}/> */}
-      <PhotoDetailsModal isOpen={isPictureModalOpen} closeModal={closePictureModal} photoDetails={photoDetailsData}/>
+      <PhotoDetailsModal isOpen={isPictureModalOpen} closeModal={closePictureModal} photoDetails={photoDetailsData} />
     </div>
   );
 };
