@@ -8,6 +8,13 @@ import useApplicationData from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  const [favs, setFavs] = useState([]);
+
+  const FavPhoto = (photoId) => {
+    // if favs [] include photoId copy of the [] and remove the photoId then set favs = copy of [] and then return.
+    setFavs(prev => [...prev, photoId]);
+    // setFavs(true);
+  }
 
   const {
     photoData,
@@ -22,8 +29,8 @@ const App = () => {
 
   return (
     <div className="App">
-      {photoData && (<HomeRoute photos={photoData} topics={topicData} openModal={openPictureModal} photoById={getDataPhotosById} />)}
-      <PhotoDetailsModal isOpen={isPictureModalOpen} closeModal={closePictureModal} photoDetails={photoDetailsData} />
+      {photoData && (<HomeRoute photos={photoData} topics={topicData} openModal={openPictureModal} photoById={getDataPhotosById} toggleFav={FavPhoto} favs={favs}/>)}
+      <PhotoDetailsModal isOpen={isPictureModalOpen} closeModal={closePictureModal} photoDetails={photoDetailsData} toggleFav={FavPhoto} favs={favs}/>
     </div>
   );
 };

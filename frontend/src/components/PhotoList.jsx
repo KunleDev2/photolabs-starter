@@ -14,6 +14,7 @@ const PhotoList = (props) => {
       photoListItem={props.photos[index]} 
       openModal={props.openModal}
       favs={props.favs}
+      toggleFav={props.toggleFav}
       />
       ) : (
         <PhotoListItem 

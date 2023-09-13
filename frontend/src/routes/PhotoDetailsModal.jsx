@@ -28,7 +28,7 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" onClick={handleClick} />
       </button>
       <div>
-        <PhotoFavButton />
+        <PhotoFavButton favs={props.favs} isModalClicked={true}/>
         <img  style={imageStyle} src={props.photoDetails.urls.full} alt="Image Source" />
         <div style={photoStyle} className='photo-details-modal__image'>
           <img src={props.photoDetails.user.profile} className="photo-list__user-profile" alt="Profile Pic" />

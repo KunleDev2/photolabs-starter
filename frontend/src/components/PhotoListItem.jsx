@@ -6,15 +6,11 @@ import PhotoFavButton from "./PhotoFavButton"
 const PhotoListItem = (props) => {
   /* Insert React */
   const { photoListItem } = props;
-
   if (photoListItem == null) {
   };
 
   const photoStyle = {
     display: "flex"
-  }
-
-  const handleClick = () => {
   }
 
   const openModalClick = () => {
@@ -23,7 +19,8 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item">
-        <PhotoFavButton favs={props.favs}/>
+        {/* {photoListItem.id} */}
+        <PhotoFavButton photoId={photoListItem.id} favs={props.favs} toggleFav={props.toggleFav}/>
       <img src={photoListItem.urls.full} key={photoListItem.id} className="photo-list__image" alt="Image Source" onClick={openModalClick}/><br></br>
       <div style={ photoStyle }>
         <img src={photoListItem.user.profile} className="photo-list__user-profile" alt="Profile Pic" />

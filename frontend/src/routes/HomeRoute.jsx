@@ -8,17 +8,11 @@ import { useState } from "react";
 const HomeRoute = (props) => {
   const {photos, topics} = props;
 
-  const [favs, setFavs] = useState(false);
-
-  const FavPhoto = (isFavs) => {
-    setFavs(isFavs);
-  }
-
   return (
     <div className="home-route">
       {/* Insert React */}
-      <TopNavigationBar topics={topics} photoById={props.photoById} favs={favs}/>
-      <PhotoList photos={photos} favs={favs} openModal={props.openModal}/>
+      <TopNavigationBar topics={topics} photoById={props.photoById} favs={props.favs.length > 0}/>
+      <PhotoList photos={photos} toggleFav={props.toggleFav} favs={props.favs} openModal={props.openModal}/>
     </div>
   );
 };

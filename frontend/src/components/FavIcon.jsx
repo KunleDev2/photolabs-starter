@@ -1,17 +1,18 @@
 import React from 'react';
 import { useState } from "react";
 
-const FavIcon = ({displayAlert, selected}) => {
+const FavIcon = ({displayAlert, selected, isModalClicked}) => {
 const [isLikedPhoto, setLikePhoto] = useState(false);
-const [isDisplayAlert, setDisplayAlert] = useState(false);
+
+if (isModalClicked) {
+  selected = [true];
+}
 
   const doLikedPhoto = () => {
     setLikePhoto(true);
-    setDisplayAlert(true);
   };
 
   selected = isLikedPhoto;
-  displayAlert = isDisplayAlert;
 
   return (
     <svg width="20" height="17" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={doLikedPhoto}>
