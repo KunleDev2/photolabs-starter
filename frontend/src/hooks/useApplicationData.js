@@ -1,4 +1,5 @@
 import { useReducer, useState, useEffect } from "react";
+const baseApiUrl = 'http://localhost:8001';
 
 const initialState = {
   isPictureModalOpen: false,
@@ -37,7 +38,7 @@ const useApplicationData = () => {
   useEffect(() => {
     const getDataPhotos = async () => {
       try {
-        const resp = await fetch('http://localhost:8001/api/photos');
+        const resp = await fetch(baseApiUrl + '/api/photos');
         const res = await resp.json();
         dispatch({ type: 'SET_PHOTO_DATA', payload: res });
       } catch (error) {
@@ -47,7 +48,7 @@ const useApplicationData = () => {
 
     const getDataTopics = async () => {
       try {
-        const resp = await fetch('http://localhost:8001/api/topics');
+        const resp = await fetch(baseApiUrl + '/api/topics');
         const res = await resp.json();
         dispatch({ type: 'SET_TOPIC_DATA', payload: res });
       } catch (error) {
@@ -62,7 +63,7 @@ const useApplicationData = () => {
   const getDataPhotosById = (titleId) => {
     const getDataById = async (titleId) => {
       try {
-        const resp = await fetch('http://localhost:8001/api/topics/photos/' + titleId);
+        const resp = await fetch(baseApiUrl + '/api/topics/photos/' + titleId);
         const res = await resp.json();
         dispatch({ type: 'SET_PHOTO_DATA', payload: res });
       } catch (error) {
