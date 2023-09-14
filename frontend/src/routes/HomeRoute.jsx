@@ -11,7 +11,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       {/* Insert React */}
-      <TopNavigationBar topics={topics} photoById={props.photoById} favs={props.favs.length > 0}/>
+      <TopNavigationBar topics={topics} photoById={props.photoById} favs={props.favs.length > 0} dataCount={props.dataCount}/>
       <PhotoList photos={photos} toggleFav={props.toggleFav} favs={props.favs} openModal={props.openModal}/>
     </div>
   );

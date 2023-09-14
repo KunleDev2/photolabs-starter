@@ -4,7 +4,9 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
-   
+
+  console.log("hello",props.favs);
+
 const likedPhoto = () => {
     props.toggleFav(props.photoId);
   };
