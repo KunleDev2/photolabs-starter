@@ -17,12 +17,14 @@ const PhotoListItem = (props) => {
     props.openModal(true, photoListItem);
   }
 
+  const isSelected = props.favs?.includes(photoListItem?.id);
+
   return (
     <div className="photo-list__item">
-        {/* {photoListItem.id} */}
-        <PhotoFavButton photoId={photoListItem.id} favs={props.favs} toggleFav={props.toggleFav}/>
-      <img src={photoListItem.urls.full} key={photoListItem.id} className="photo-list__image" alt="Image Source" onClick={openModalClick}/><br></br>
-      <div style={ photoStyle }>
+      {/* {photoListItem.id} */}
+      <PhotoFavButton photoId={photoListItem.id} favs={props.favs} selected={isSelected} toggleFav={props.toggleFav} />
+      <img src={photoListItem.urls.full} key={photoListItem.id} className="photo-list__image" alt="Image Source" onClick={openModalClick} /><br></br>
+      <div style={photoStyle}>
         <img src={photoListItem.user.profile} className="photo-list__user-profile" alt="Profile Pic" />
         <div>
           <div className="photo-list__user-info">{photoListItem.user.username}</div>

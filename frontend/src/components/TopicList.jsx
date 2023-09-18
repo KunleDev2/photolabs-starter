@@ -27,7 +27,7 @@ const TopicList = (props) => {
     <div className="top-nav-bar__topic-list">
       {/* Insert React */}
       {/* <TopicListItem sampleDate={sampleDataForTopicList}/> */}
-      { Array.from(Array(topics.length)).map((_, index) => <TopicListItem key={index} sampleData={topics[index]} photoById={props.photoById}/>) }
+      {Array.from(Array(topics.length)).map((_, index) => <TopicListItem key={index} sampleData={topics[index]} photoById={props.photoById} />)}
     </div>
   );
 };

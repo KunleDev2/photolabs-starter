@@ -7,23 +7,23 @@ const PhotoList = (props) => {
   return (
     <ul className="photo-list">
       {/* Insert React */}
-      { Array.from(Array(props.photos.length)).map((_, index) => 
-      props.photos[index] ? (
-      <PhotoListItem 
-      key={index} 
-      photoListItem={props.photos[index]} 
-      openModal={props.openModal}
-      favs={props.favs}
-      toggleFav={props.toggleFav}
-      />
-      ) : (
-        <PhotoListItem 
-      key={1} 
-      photoListItem={props.photos[1]} 
-      openModal={props.openModal}
-      favs={props.favs}
-      />
-      )) }
+      {Array.from(Array(props.photos.length)).map((_, index) =>
+        props.photos[index] ? (
+          <PhotoListItem
+            key={index}
+            photoListItem={props.photos[index]}
+            openModal={props.openModal}
+            favs={props.favs}
+            toggleFav={props.toggleFav}
+          />
+        ) : (
+          <PhotoListItem
+            key={1}
+            photoListItem={props.photos[1]}
+            openModal={props.openModal}
+            favs={props.favs}
+          />
+        ))}
     </ul>
   );
 };

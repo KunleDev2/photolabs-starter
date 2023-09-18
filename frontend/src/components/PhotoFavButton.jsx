@@ -5,16 +5,16 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
 
-  console.log("hello",props.favs);
-
-const likedPhoto = () => {
-    props.toggleFav(props.photoId);
+  const likedPhoto = () => {
+    if (props.favs) {
+      props.toggleFav(props.photoId);
+    }
   };
 
   return (
     <div className="photo-list__fav-icon" onClick={likedPhoto}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={props.favs} isModalClicked={props.isModalClicked}/>
+        <FavIcon selected={props.selected} />
       </div>
     </div>
   );

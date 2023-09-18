@@ -5,17 +5,16 @@ import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import { useState, useEffect } from "react";
 import useApplicationData from 'hooks/useApplicationData';
+import FavBadge from 'components/FavBadge';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const [favs, setFavs] = useState([]);
-  const [getfavs, setCountFavs] = useState([]);
+  const [favCount, setFavCount] = useState(0); // Add state for the count of favorited photos
 
   const FavPhoto = (photoId) => {
-    // if favs [] include photoId copy of the [] and remove the photoId then set favs = copy of [] and then return.
-    setFavs(prev => [...prev, photoId]);
-    setCountFavs(prev => [...prev, photoId]);
-    // setFavs(true);
+    setFavs(prev => prev.includes(photoId) ? prev.filter(id => id !== photoId) : [...prev, photoId]);
+    setFavCount(prev => prev + (favs.includes(photoId) ? -1 : 1)); // Adjust the count
   }
 
   const {
@@ -23,7 +22,6 @@ const App = () => {
     isPictureModalOpen,
     topicData,
     photoDetailsData,
-    // updateToFavPhotoIds,
     getDataPhotosById,
     openPictureModal,
     closePictureModal
@@ -31,8 +29,9 @@ const App = () => {
 
   return (
     <div className="App">
-      {photoData && (<HomeRoute photos={photoData} topics={topicData} openModal={openPictureModal} photoById={getDataPhotosById} toggleFav={FavPhoto} favs={favs} dataCount={getfavs}/>)}
-      <PhotoDetailsModal isOpen={isPictureModalOpen} closeModal={closePictureModal} photoDetails={photoDetailsData} toggleFav={FavPhoto} favs={favs}/>
+      {photoData && (<HomeRoute photos={photoData} topics={topicData} openModal={openPictureModal} photoById={getDataPhotosById} toggleFav={FavPhoto} favs={favs} favCount={favCount} selected={photoDetailsData?.id ? favs.includes(photoDetailsData.id) : false} />)}
+      <FavBadge favCount={favCount} />
+      <PhotoDetailsModal isOpen={isPictureModalOpen} closeModal={closePictureModal} photoDetails={photoDetailsData} toggleFav={FavPhoto} favs={favs} selected={photoDetailsData?.id ? favs.includes(photoDetailsData.id) : false} />
     </div>
   );
 };
